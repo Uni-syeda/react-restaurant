@@ -1,0 +1,53 @@
+/* Default styles */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border:4px solid grey;
+    margin-top:30px;
+    background-color: rgb(247, 240, 232);
+}
+
+form,h1 {
+    display: grid;
+    gap: 10px;
+    justify-content: center;
+      
+}
+
+label, input, textarea, button {
+    width: 100%;
+    padding:8px;
+   
+}
+
+button {
+    padding: 12px;
+    cursor:pointer;
+    font-size:1rem;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 4px;
+        /* width:75%; */
+    }
+    
+    form {
+        grid-template-columns: 1fr;
+        width:75%;
+        margin-left:25px;
+        
+    }
+}
+
+@media screen and (max-width: 480px) {
+    label {
+        font-size: 0.9em;
+    }
+    
+    button {
+        font-size: 0.9em;
+    }
+}

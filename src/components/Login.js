@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-
+import { useNavigate } from "react-router-dom";
+import './Login.css';
 function Login({ user, setUser }) {
   const [loginFormData, setLoginFormData] = useState({
     email: "",
     password: "",
   });
-  //const [allLogin, setAllLogin] = useState([]);
+  const navigate = useNavigate(); //added
   const [errorMessage, setErrorMessage] = useState("");
 
   const loginForm = (e) => {
@@ -21,6 +22,7 @@ function Login({ user, setUser }) {
       .then((response) => response.json())
       .then((result) => {
         console.log(result);
+        navigate('/OrderForm')
         if (result.statusCode === 200) {
           setUser(result.data);
         } else {

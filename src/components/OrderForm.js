@@ -1,121 +1,273 @@
-import React from "react"
-function Order(){
-    return (
-        <div>
-    <div className="flex-container">
-        <span id="right-border">Taste Of Hyderabad</span>
-        <span>456 Heather Hill, Boulder, Co</span>
-        <a href="#">Log in</a>
-    </div>
-    <div className="container">
-        <h1>Taste Of Hyderabad</h1>
-        <ul className="flex-container">
-            <li>456 Heather Hill</li>
-            <li>Opens today at 11am</li>
-            <li><a href="# ">More info</a></li>
-        </ul>
-    </div>
-    <div className="container1">
-        <select className="margin-left">
-            <option>Categories</option>
-            <option>popular Items</option>
-            <option>Vegetarian Starters</option>
-            <option>Non-Vegetarian Starters</option>
-            <option>Tandoor Kebabs(SERVED WITH CHUTNEYS)</option>
-            <option>Vegetarian Entrees(NOT SERVED WITH RICE)</option>
-        </select>
-        <input type="text" placeholder="Search" required/>
-     
-    </div>
-    <h2>Popular Items</h2>
-    <div className="box">
-        <div className="boxes">
-            <h3>GARLIC NAAN</h3>
-                <p>Garlic and herb-infused, teardrop-shaped leavened bread baked in a tandoor oven.</p>
-                <p>$3.49</p>
-        </div>
-        <div className="boxes">
-        </div>
-    </div>
-    <div className="box">
-        <div className="boxes">
-        </div>
-        <div className="boxes">
-        </div>
-    </div>
-    <div className="box">
-        <div className="boxes">
-        </div>
-        <div className="boxes">
-        </div>
-    
-    </div>
+import React, { useState } from 'react';
+import './OrderForm';
+import './OrderForm.css';
 
-    {/* <!-- HTML code-->
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Order</title>
+function OrderForm() {
+  const [order, setOrder] = useState({
+    list: [
+      { menuId: '1', quantity: 0, name: 'Biryani' },
+      { menuId: '2', quantity: 0, name: 'Cake' },
+      { menuId: '3', quantity: 0, name: 'Tea' },
+    ],
+    //status: 'pending',
+    //userId: '',
+  });
+  const [message, setMessage] = useState('');
 
-        <link rel="stylesheet" type="text/css" href="./public/styles/online-order.css" />
-    </head>
-    <body>
-        <div class="flex-container">
-            <span id="right-border">Taste Of Hyderabad</span>
-            <span>456 Heather Hill, Boulder, Co</span>
-            <a href="#">Log in</a>
-        </div>
-        <div class="container">
-            <h1>Taste Of Hyderabad</h1>
-            <ul class="flex-container">
-                <li>456 Heather Hill</li>
-                <li>Opens today at 11am</li>
-                <li><a href="#">More info</a></li>
-            </ul>
-        </div>
-        <div class="container1">
-            <select class="margin-left">
-                <option>Categories</option>
-                <option>popular Items</option>
-                <option>Vegetarian Starters</option>
-                <option>Non-Vegetarian Starters</option>
-                <option>Tandoor Kebabs(SERVED WITH CHUTNEYS)</option>
-                <option>Vegetarian Entrees(NOT SERVED WITH RICE)</option>
-            </select>
-            <input type="text" placeholder="Search" />
-        </div> */}
-{/* 
-<!-- order section --> */}
-        <h2>Popular Items</h2>
-        <div className="box">
-            <div className="boxes">
-                <h3>GARLIC NAAN</h3>
-                <p>Garlic and herb-infused, teardrop-shaped leavened bread baked in a tandoor oven.
-                $3.49</p>
-            </div>
+  // const handleUserIdChange = (e) => {
+  //   setOrder({ ...order, userId: e.target.value });
+  // };
 
-            <div className="boxes">
-                <h3>Paratha</h3>
-                <p>Flaky, buttery bread, ideal for soaking up flavorful gravies.</p>
-                <p>$2.99</p>
-            </div>
-        </div>
+  const handleItemChange = (id, quantity) => {
+    console.log(id, quantity);
+    const newItems = order.list.map((item) =>
+      item.menuId === id ? { ...item, quantity: parseInt(quantity) } : item
+    );
+    setOrder(prevOrder =>({ ...prevOrder, list: newItems }));
+  };
 
-        <div className="box">
-            <div className="boxes">
-                <h3>Hyderabadi Dum Biryani</h3>
-                <p>Fragrant basmati rice cooked with vegetables and aromatic spices.</p>
-                <p>$10.99</p>
-            </div>
-            <div className="boxes">
-                <h3>Masala Chai</h3>
-                <p>Traditional Indian spiced tea, brewed with ginger, cardamom, and cloves.</p>
-                <p>$2.49</p>
-            </div>
-        </div>
-        <div className="box">
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('http://localhost:8080/order', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(order),
+      });
+      if (response.ok) {
+        setMessage('Order submitted successfully!');
+      } else {
+        setMessage('Failed to submit order.');
+      }
+    } catch (error) {
+      setMessage('Error submitting order: ' + error.message);
+    }
+  };
+console.log(order);
+  return (
+    <div>
+    <h1>Order Menu</h1>
+    <form onSubmit={handleSubmit}>
+      {/* <div>
+        <label>User ID:</label>
+        <input
+          type="text"
+          name="userId"
+          value={order.userId}
+          onChange={handleUserIdChange}
+          required
+        />
+      </div> */}
+      <div>
+        <h3>Menu Items</h3>
+        {order.list.map((item) => (
+          <div key={item.menuId}>
+            <label>{item.name}</label>
+            <input
+              type="number"
+              min="1"
+              max="20"
+              value={item.quantity}
+              onChange={(e) => handleItemChange(item.menuId, e.target.value)}
+            />
+          </div>
+        ))}
+      </div>
+      <button type="submit">Submit Order</button>
+      {message && <p>{message}</p>}
+    </form>
+    </div>
+  );
+}
+
+export default OrderForm;
+
+
+// import { useNavigate } from "react-router-dom";
+// import React, { useEffect, useState } from "react";
+
+// const Order = () => {
+//   // const navigate = useNavigate();
+
+//   const handleOrderSubmit = (e) => {
+//     e.preventDefault();
+
+//     const body = {
+//       menu1: e.target.menu1.value,
+//       menu2: e.target.menu2.value,
+//       menu3: e.target.menu3.value,
+//       menu4: e.target.menu4.value,
+//       menu5: e.target.menu5.value,
+//     };
+
+//     fetch(`http://localhost:8080/order`, {
+//       method: "POST",
+//       body: JSON.stringify(body),
+//     })
+//       .then((response) => response.json())
+//       .then((result) => {
+//         console.log(result);
+//         //navigate(`/admin`); // need to change
+//       })
+//       .catch((error) => console.log("error :>> ", error));
+//   };
+
+//   return (
+//     <div className="container-content">
+//       <div className="form-container">
+//         <h1>Order Form</h1>
+//         <form onSubmit={handleOrderSubmit}>
+//           <label htmlFor="menu1">Menu1:</label>
+//           <input
+//             type="text"
+//             id="menu1"
+//             name="menu1"
+//             placeholder="Menu1"
+//             required
+//           />
+//           <br />
+//           <label htmlFor="menu2">Menu2:</label>
+//           <input
+//             type="text"
+//             id="menu2"
+//             name="menu2"
+//             placeholder="Menu2"
+//             required
+//           />
+
+//           <br />
+//           <label htmlFor="menu3">Menu3:</label>
+//           <input
+//             type="text"
+//             id="menu3"
+//             name="menu3"
+//             placeholder="Menu3"
+//             required
+//           />
+
+//           <br />
+//           <label htmlFor="menu4">Menu4:</label>
+//           <input
+//             type="text"
+//             id="menu4"
+//             name="menu4"
+//             placeholder="Menu4"
+//             required
+//           />
+
+//           <br />
+//           <label htmlFor="menu5">Menu5:</label>
+//           <input
+//             type="text"
+//             id="menu5"
+//             name="menu5"
+//             placeholder="Menu5"
+//             required
+//           />
+//           <br />
+//           <button type="submit">Submit</button>
+//         </form>
+//       </div>
+//       <div className="flex-container">
+//         <span id="right-border">Taste Of Hyderabad</span>
+//         <span>456 Heather Hill, Boulder, Co</span>
+//         <a href="# ">Log in</a>
+//       </div>
+//       <div className="container">
+//         <h1>Taste Of Hyderabad</h1>
+//         <ul className="flex-container">
+//           <li>456 Heather Hill</li>
+//           <li>Opens today at 11am</li>
+//           <li>
+//             <a href="# ">More info</a>
+//           </li>
+//         </ul>
+//       </div>
+//       <div className="container1">
+//         <select className="margin-left">
+//           <option>Categories</option>
+//           <option>popular Items</option>
+//           <option>Vegetarian Starters</option>
+//           <option>Non-Vegetarian Starters</option>
+//           <option>Tandoor Kebabs(SERVED WITH CHUTNEYS)</option>
+//           <option>Vegetarian Entrees(NOT SERVED WITH RICE)</option>
+//         </select>
+//         <input type="text" placeholder="Search" required />
+//       </div>
+//       <h2>Popular Items</h2>
+//       <div className="box">
+//         <div className="boxes">
+//           <h3>GARLIC NAAN</h3>
+//           <p>
+//             Garlic and herb-infused, teardrop-shaped leavened bread baked in a
+//             tandoor oven.
+//           </p>
+//           <p>$3.49</p>
+//         </div>
+//         <div className="boxes"></div>
+//       </div>
+//       <div className="box">
+//         <div className="boxes"></div>
+//         <div className="boxes"></div>
+//       </div>
+//       <div className="box">
+//         <div className="boxes"></div>
+//         <div className="boxes"></div>
+//       </div>
+//       {/* <!-- order section --> */}        <h2>Popular Items</h2>       {" "}
+//       <div className="box">
+//                    {" "}
+//         <div className="boxes">
+//                           <h3>GARLIC NAAN</h3>               {" "}
+//           <p>
+//             Garlic and herb-infused, teardrop-shaped leavened bread baked in a
+//             tandoor oven.                 $3.49
+//           </p>
+//                      {" "}
+//         </div>
+//                    {" "}
+//         <div className="boxes">
+//                           <h3>Paratha</h3>               {" "}
+//           <p>Flaky, buttery bread, ideal for soaking up flavorful gravies.</p> 
+//                         <p>$2.99</p>           {" "}
+//         </div>
+//                {" "}
+//       </div>
+//              {" "}
+//       <div className="box">
+//                    {" "}
+//         <div className="boxes">
+//                           <h3>Hyderabadi Dum Biryani</h3>               {" "}
+//           <p>
+//             Fragrant basmati rice cooked with vegetables and aromatic spices.
+//           </p>
+//                           <p>$10.99</p>           {" "}
+//         </div>
+//                    {" "}
+//         <div className="boxes">
+//                           <h3>Masala Tea</h3>               {" "}
+//           <p>
+//             Traditional Indian spiced tea, brewed with ginger, cardamom, and
+//             cloves.
+//           </p>
+//                           <p>$2.49</p>           {" "}
+//         </div>
+//                {" "}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Order;
+
+// function Order(){
+//     return (
+//         <div>
+
+
+  /*         <div className="box">
             <div className="boxes">
                 <h3>Shikampur Kebab</h3>
                 <p>Minced meat patties stuffed with a flavorful mixture of spices and served with mint chutney.</p>
@@ -329,10 +481,5 @@ function Order(){
                 <p>Tangy and refreshing drink made with roasted cumin seeds, mint, and spices, offering a cooling and digestive beverage option.</p>
                 <p>$2.99</p>
             </div>
-        </div>  
+        </div>   */
 
-
-        </div>
-    )
-}
-export default Order;

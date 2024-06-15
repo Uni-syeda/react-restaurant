@@ -1,0 +1,124 @@
+   /* body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }*/
+  
+  .container {
+    max-width: 500px; /* Set maximum width to 500px */
+    width: 90%; /* Set width to 90% */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin:auto;
+    margin-top:50px;
+  }
+
+  .center{
+    text-align: center;
+    margin-top: 25px;
+  }
+  
+  h2 {
+    margin-top: 0;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+    display: flex;
+  }
+    /* align-items: center; 
+    justify-content: center;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    /* flex: 1; 
+  }
+  
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    
+  }
+  
+  button {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  .reset-password {
+    flex: 1;
+    text-align: right;
+    font-size: 14px;
+    margin-right:20px;
+  }
+   */
+   /* CSS for responsive form fields */
+.container {
+    max-width: 500px; /* Set maximum width to 500px */
+    width: 90%; /* Set width to 90% */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin:auto;
+    margin-top:50px;
+  }
+  
+  .center {
+    text-align: center;
+  }
+  
+  .form-group ,  input[type="checkbox"]{
+    padding:8px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center; /* Align items vertically */
+    justify-content: center; /* Distribute space evenly between items */
+  }
+  
+  label {
+    flex: 1; /* Distribute remaining space equally among labels */
+    margin-right: 10px; /* Add spacing between label and input */
+    text-align: right; /* Align labels to the right */
+  }
+  /* #keep-signed-in{
+    margin-left:50px;
+  }
+   */
+  input[type="email"],
+  input[type="password"] {
+    flex: 2; /* Take up remaining space */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  
+  button {
+    flex: 2; /* Take up remaining space */
+  }
+  
+  .reset-password {
+    flex: 1; /* Take up remaining space */
+    text-align: right;
+    font-size: 14px;
+  }
+  
