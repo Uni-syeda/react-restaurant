@@ -10,7 +10,7 @@ function About() {
             className="image"
             alt="img-biryani"
           />
-        </div>
+        </div> 
         <div className="boxes">
           <h2 className="heading">About Us</h2>
           <h3 className="content-style">Indian restaurant</h3>
@@ -46,6 +46,7 @@ function About() {
         </div>
       </div>
     </div>
+    
   );
 }
 

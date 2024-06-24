@@ -8,11 +8,8 @@ function Home() {
         <h1>TASTE OF HYDERABAD</h1>
         <h2>Indian Restaurant</h2>
         <h2>Boulder, Co</h2>
-      </div>
 
-      <div className="container-center">
         <Link to="12345678" className="button-link">
-          {/* //<a href="12345678" className="button-link"> */}
           <button type="button" className="button-styles">
             CallUs
           </button>
@@ -23,9 +20,6 @@ function Home() {
             Online Order
           </button>
         </Link>
-        {/* <a href="online-order.html" className="button-link">
-          
-        </a> */}
 
         <Link to="/Menu" className="button-link">
           <button type="button" className="button-styles">

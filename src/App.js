@@ -6,6 +6,7 @@ import Login from "./components/Login";
 import Menu from "./components/Menu";
 import { useState } from "react";
 import OrderForm from "./components/OrderForm";
+import Cart from "./components/Cart";
 import Contact from "./components/Contact";
 import Header from "./shared/Header";
 import Footer from "./shared/Footer";
@@ -30,6 +31,7 @@ function App() {
           element={<Signup user={user} setUser={setUser} />}
         />
         <Route path="/OrderForm" element={<OrderForm />} />
+        <Route path="/Cart" element={<Cart />} />
       </Routes>
 
       <Footer />

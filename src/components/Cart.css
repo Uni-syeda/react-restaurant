@@ -1,0 +1,10 @@
+.styles{
+    width:400px;
+    text-align: center;
+    border:2px solid black;
+    padding:15px;
+    margin:auto;  
+}
+ul, ol {
+    list-style-type: none; /* Removes bullets from all ul and ol elements */
+  }

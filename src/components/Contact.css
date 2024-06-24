@@ -15,7 +15,7 @@ form,h1 {
       
 }
 
-label, input, textarea, button {
+input, textarea, button {
     width: 100%;
     padding:8px;
    
@@ -37,7 +37,7 @@ button {
     form {
         grid-template-columns: 1fr;
         width:75%;
-        margin-left:25px;
+        margin-left:20px;
         
     }
 }

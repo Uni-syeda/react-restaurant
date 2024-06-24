@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import './Login.css';
+import "./Login.css";
 function Login({ user, setUser }) {
   const [loginFormData, setLoginFormData] = useState({
     email: "",
@@ -22,7 +22,7 @@ function Login({ user, setUser }) {
       .then((response) => response.json())
       .then((result) => {
         console.log(result);
-        navigate('/OrderForm')
+        navigate("/OrderForm");
         if (result.statusCode === 200) {
           setUser(result.data);
         } else {
@@ -51,7 +51,7 @@ function Login({ user, setUser }) {
     <div>
       <div className="container">
         <div className="center">
-          <h2>Login</h2>
+          <h1>Login</h1>
           <form action="#" onSubmit={loginForm}>
             <div className="form-group">
               <label htmlFor="email">Email:</label>
@@ -80,15 +80,15 @@ function Login({ user, setUser }) {
                 type="checkbox"
                 id="keep-signed-in"
                 name="keep-signed-in"
-                
               />
-              <label htmlFor="keep-signed-in">Keep me signed in</label>
+              <label htmlFor="keep-signed-in">signed in</label>
               <a href="# " className="reset-password">
                 Reset password
               </a>
             </div>
             <button type="submit">Sign In</button>
           </form>
+          <br />
           <p className="create-account">
             Don't have an account?
             <a href="/signup">Create Your Account</a>
