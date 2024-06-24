@@ -1,0 +1,108 @@
+:root{
+    --grey: #c2c2c2;
+    --yellow: #fccf14;
+    --white: #ffffff;
+    --black:#110f0f;
+    --maroon:#420505;
+    --goldenrod:#DAA520;
+    }
+    
+    *{
+        margin: 0;
+        padding:0;
+        box-sizing: border-box;
+    }
+    
+    /* --------header/nav-----------*/
+    
+     nav, header {
+        
+        font-family: "Muli",Sans-serif;
+    }
+    
+    .nav-style {
+        display: flex;
+        align-items: center;
+        background-color: #420505;
+        border: 7px solid darkgoldenrod;
+        padding: 10px;
+    }
+    
+    .logo-size {
+        width: 200px; /* Set the logo size */
+        margin-left: 120px;
+        height:150px;
+        background-color: #420505;
+    }
+    
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 150px;
+    }
+    
+    .nav-display {
+        display: flex;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    
+    .nav-item {
+        margin-right: 1.5rem;
+        font-size: 15px;
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+    
+    #color-white {
+        color: white;
+    }
+    
+    .nav-item a {
+        text-decoration: none;
+        color: goldenrod;
+        font-size: 20px;
+        text-transform: uppercase;
+        margin-right: 30px;
+    }
+    
+    .container-center{
+        text-align: center; /* Center align the text */
+        margin-top: 75px; 
+    } */
+    
+    /* Media query for smaller screens */
+     /* @media screen and (max-width: 768px) {
+        .logo-size {
+            width: 150px; /* Adjust logo size for smaller screens 
+            margin-left: 50px; /* Adjust logo margin for smaller screens 
+        }
+        
+        .nav-item {
+            font-size: 12px; /* Adjust font size of nav items for smaller screens 
+        }
+        
+        #color-white {
+            margin-right: 20px; /* Adjust margin of color-white anchor for smaller screens 
+        }
+        
+        .nav-item a {
+            margin-right: 15px; /* Adjust margin of nav item anchor for smaller screens 
+        }
+    }  */
+
+    
+    /*------- heading section --------*/
+   
+    
+    h1, h2 {
+        font-size: 3rem;
+        /* color: var(--goldenrod); */
+        margin-top: 15px; /* Remove default margin to ensure proper centering */
+    }
+
+
+    

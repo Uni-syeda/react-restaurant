@@ -1,0 +1,25 @@
+.flex-container {
+    display: flex;
+    /* border:1px solid red;*/
+  } 
+  .boxes{
+    width:50%;
+    height:500px;
+    /* border:1px solid blue; */
+    margin:30px;
+  }
+  .image{
+    height:400px;
+    width:500px;
+    /* margin-left: 70px; */ 
+
+}
+.content-style{
+    font-family: "Muli",Sans-serif;
+    padding:5px; 
+}
+
+.heading{
+    color:var(--goldenrod);
+    padding:20px;
+}

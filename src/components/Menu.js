@@ -1,4 +1,5 @@
 import React from "react";
+import './Menu.css';
 function Menu() {
   const menuPages = [
     {
@@ -26,14 +27,14 @@ function Menu() {
       </div>
       ))}
 
-      <div>
+      {/* <div>
         <img
-          src="./public/assets/taste_of_hyderabad__3__480.png"
+          src="../images/taste_of_hyderabad__3__480.png"
           alt="logo"
           className="menu-top-image"
         />
-      </div>
-      <hr />
+      </div> */}
+      {/* <hr />
       <br />
       <hr />
       <h1 className="h1-style">vegetarian starter</h1>
@@ -52,7 +53,7 @@ function Menu() {
             <span className="item-price">$3.49</span>
           </li>
           {/* <!-- Add more items as needed  */}
-        </ul>
+        {/* </ul>
       </div>
 
       <div className="menu">
@@ -68,7 +69,7 @@ function Menu() {
               <span className="item-price">$3.49</span>
             </li>
             {/* <!-- Add more items as needed  */}
-          </ul>
+          {/* </ul>
         </div>
         <div className="category">
           <h2>Main Course</h2>
@@ -80,12 +81,12 @@ function Menu() {
             <li className="item">
               <span className="item-name">Vegetable Curry</span>
               <span className="item-price">$8.49</span>
-            </li>
-            {/* //Add more items as needed */}
+            </li> */} 
+            {/* //Add more items as needed
           </ul>
-        </div>
+        </div> */}
         {/* // Add more categories as needed */}
-      </div>
+      
     </div>
   );
 }
