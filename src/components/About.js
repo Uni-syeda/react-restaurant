@@ -1,15 +1,16 @@
 import React from "react";
+import './About.css';
 function About() {
   return (
     <div>
       <div className="flex-container">
         <div className="boxes">
           <img
-            src="./public/assets/Chciken Dum Biryani Recipe.JPG"
+            src="../images/Biryani.JPG"
             className="image"
             alt="img-biryani"
           />
-        </div>
+        </div> 
         <div className="boxes">
           <h2 className="heading">About Us</h2>
           <h3 className="content-style">Indian restaurant</h3>
@@ -45,6 +46,7 @@ function About() {
         </div>
       </div>
     </div>
+    
   );
 }
 
