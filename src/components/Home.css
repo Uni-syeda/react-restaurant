@@ -1,56 +1,50 @@
-/*-------Button section --------*/
+.button-styles {
+  margin: 30px;
+  padding: 20px;
 
-.button-styles{
-    margin:30px;
-    padding:20px;
-    background-color:var(--goldenrod);
-    /* box-shadow:var(--goldenrod); */
-    font-size: 1.5rem;
-    border-radius: 20px;  
-    width: 300px; 
-    color:var(--white);
-    border:none;
-    cursor: pointer;
+  font-size: 1.5rem;
+  border-radius: 20px;
+  width: 300px;
+  color: var(--white);
+  border: none;
+  cursor: pointer;
 }
 
-/* Default styles for slider */
 .slider {
-    width: 100%;
-    height: 300px; /* Adjust the height as needed */
-    display: flex;
-    justify-content: flex-start;
-    margin-top: 30px;
-    margin-bottom: 40px;
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 30px;
+  margin-bottom: 40px;
 }
 
 .slide {
-    width: 400px;
-    height: 300px;
-    background-color: lightgrey;
+  width: 400px;
+  height: 300px;
+  background-color: lightgrey;
 }
 
 .slide img {
-    width: 350px;
-    height: 250px;
-    padding: 20px;
+  width: 350px;
+  height: 250px;
+  padding: 20px;
 }
 
-/* Media query for smaller screens */
 @media screen and (max-width: 768px) {
-    .slider {
-       
-        flex-wrap: wrap; /* Allow slides to wrap to the next line */
-        justify-content: center; /* Center align slides on smaller screens */
-    }
+  .slider {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
-    .slide {
-        width: 80%; /* Adjust slide width for smaller screens */
-        margin: 8px; /* Add margin between slides on smaller screens */
-        min-height:100px;
-    }
+  .slide {
+    width: 80%;
+    margin: 8px;
+    min-height: 100px;
+  }
 
-    .slide img {
-        width: 100%; /* Make images responsive to fit smaller screens */
-        height: auto; /* Maintain aspect ratio */
-    }
+  .slide img {
+    width: 100%;
+    height: auto;
+  }
 }

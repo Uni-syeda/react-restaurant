@@ -1,20 +1,18 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    /* background: url('./public/assets/6191107.jpg');  */
-  }
-  div{
-    margin-top: 30px;
-  }
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+div {
+  margin-top: 30px;
+}
 
-  .menu {
-    width: 50%; /* Adjust the width as needed */
-    height: 900px; /* Adjust the height as needed */
-    margin-top: 60px; /* Adjust the top margin as needed */
-    /* margin-bottom: 50px; */ /* Uncomment this line if you want a bottom margin */
-    line-height: 1.7;
-    text-align: center; /* This centers the content inside the element */
-    display: block; /* Ensure the image is treated as a block element */
-    margin: 0 auto; /* This centers the image horizontally within its container */
+.menu {
+  width: 50%;
+  height: 900px;
+  margin-top: 60px;
+  line-height: 1.7;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
 }

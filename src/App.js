@@ -2,8 +2,8 @@ import { Routes, Route } from "react-router-dom";
 import About from "./components/About";
 import Signup from "./components/Signup";
 import Home from "./components/Home";
-import Login from "./components/Login";
 import Menu from "./components/Menu";
+import Login from "./components/Login";
 import { useState } from "react";
 import OrderForm from "./components/OrderForm";
 import Cart from "./components/Cart";
@@ -23,7 +23,7 @@ function App() {
         <Route path="/Contact" element={<Contact />} />
         <Route
           path="/Login"
-          element={<Login user={user} setUser={setUser} />}
+          element={<Login user={user} setUser={setUser}/>}
         />
         <Route path="/Menu" element={<Menu />} />
         <Route
