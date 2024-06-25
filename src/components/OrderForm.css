@@ -24,7 +24,7 @@ input[type="number"] {
 
 button {
   padding: 10px 20px;
-  background-color: #28a745;
+  background-color: #6c1422;
   color: white;
   border: none;
   border-radius: 5px;
@@ -32,5 +32,5 @@ button {
 }
 
 button:hover {
-  background-color: #218838;
+  background-color: #282928;
 }
